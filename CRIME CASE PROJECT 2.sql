@@ -34,4 +34,20 @@ from person as p
 join drivers_license as d
 on p.license_id = d.id
 where p.name = 'Joe Germuska' or p.name = 'Jeremy Bowers'
--- WE HAVE THE KILLER;
+
+It seems like our killer may have been taking orders from someone. Let’s see what he has to say. Based on the result from our gym membership query, we know Jeremy Bowers’ person_id: 67318. This should be all we need to pull up his interview transcript.
+select transcript
+from interview
+where person_id = '67318'
+
+We now have information about who gave Jeremy Bowers the order to carry out the killing
+
+select p.name, d.height, d.hair_color, d.car_model, d.gender
+from drivers_license as d
+join person as p
+on d.id = p.license_id
+where height between 65 and 67 and hair_color = 'red' and gender = 'female' and car_model = 'Model S'
+and  p.id in (select f.person_id from facebook_event_checkin as f
+where f.event_name = 'SQL Symphony Concert' )
+
+--NOW WE HAVE OUR KILLER 'MIRANDA PRIESTLY'
