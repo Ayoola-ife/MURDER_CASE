@@ -50,4 +50,4 @@ where height between 65 and 67 and hair_color = 'red' and gender = 'female' and 
 and  p.id in (select f.person_id from facebook_event_checkin as f
 where f.event_name = 'SQL Symphony Concert' )
 
---NOW WE HAVE OUR KILLER 'MIRANDA PRIESTLY'
+--NOW WE HAVE OUR KILLER 'MIRANDA PRIESTLY'.
